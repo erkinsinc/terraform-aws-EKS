@@ -1,7 +1,3 @@
-# Repo for building EKS Cluster
-### Requirement 0.12.19
-Create a file called module.tf 
-```
 data "aws_eks_cluster" "cluster" {
   name = module.my-cluster.cluster_id
 }
@@ -32,36 +28,3 @@ module "my-cluster" {
     }
   ]
 }
-
-
-```
-
-## Create a file output.tf 
-```
-output "cluster_id" {
-    value = "${module.my-cluster.cluster_id}"
-}
-
-output "cluster_arn" {
-    value = "${module.my-cluster.cluster_arn}"
-}
-
-output "cluster_version" {
-    value = "${module.my-cluster.cluster_version}"
-}
-
-output "cluster_security_group_id" {
-    value = "${module.my-cluster.cluster_security_group_id}"
-}
-
-output "workers_asg_names" {
-    value = "${module.my-cluster.workers_asg_names}"
-}
-```
-
-
-### Run the following commands
-```
-terraform init 
-terraform apply
-```
